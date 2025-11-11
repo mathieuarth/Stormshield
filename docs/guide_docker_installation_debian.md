@@ -50,6 +50,8 @@ docker run --rm hello-world
 
 ---
 
+## Installation manuelle
+
 ## Étape 1 : Mettre à jour les paquets système
 
 Avant d'installer Docker, mettez à jour votre système :
@@ -329,17 +331,18 @@ docker rm nginx
 
 Une fois Docker installé sur Debian, consultez les guides suivants pour aller plus loin :
 
-- [Guide Docker](./guide_docker.md) — utilisation courante de Docker.
-- [Guide Docker Compose](./guide_docker_compose.md) — orchestration multi-containers.
-- [Guide Docker Images](./guide_docker_image.md) — gestion des images Docker.
-- [Guide Docker Containers](./guide_docker_container.md) — gestion des containers.
-- [Guide Docker Volumes](./guide_docker_volume.md) — persistance des données.
-- [Guide Docker Networks](./guide_docker_network.md) — networking entre containers.
-- [Guide Docker Logs](./guide_docker_logs.md) — consultation et monitoring des logs.
-- [Guide Docker PS](./guide_docker_ps.md) — lister et monitorer les containers.
-- [Guide Docker Exec](./guide_docker_exec.md) — exécuter des commandes dans un container.
-- [Guide Docker Stop/Start/Restart](./guide_docker_stop_start_restart.md) — gérer le cycle de vie des containers.
-- [Guide Portainer](./guide_portainer.md) — interface graphique pour gérer Docker.
+- [Guide Docker Système de fichier](./docker/guide_docker_filesystem_debian.md) — Emplacement standard des fichiers de configuration.
+- [Guide Docker](./docker/guide_docker.md) — utilisation courante de Docker.
+- [Guide Docker Compose](./docker/guide_docker_compose.md) — orchestration multi-containers.
+- [Guide Docker Images](./docker/guide_docker_image.md) — gestion des images Docker.
+- [Guide Docker Containers](./docker/guide_docker_container.md) — gestion des containers.
+- [Guide Docker Volumes](./docker/guide_docker_volume.md) — persistance des données.
+- [Guide Docker Networks](./docker/guide_docker_network.md) — networking entre containers.
+- [Guide Docker Logs](./docker/guide_docker_logs.md) — consultation et monitoring des logs.
+- [Guide Docker PS](./docker/guide_docker_ps.md) — lister et monitorer les containers.
+- [Guide Docker Exec](./docker/guide_docker_exec.md) — exécuter des commandes dans un container.
+- [Guide Docker Stop/Start/Restart](./docker/guide_docker_stop_start_restart.md) — gérer le cycle de vie des containers.
+- [Guide Portainer](./docker/guide_portainer.md) — interface graphique pour gérer Docker.
 
 ## Ressources utiles
 
