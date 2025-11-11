@@ -63,9 +63,68 @@ agentAddress udp:161
 ## 🔹 Utilisation des OID
 
 Un **OID** (Object Identifier) est une chaîne numérique hiérarchique qui identifie une variable spécifique dans un équipement SNMP.
-Chaque OID correspond à une information (ex : charge CPU, mémoire, état d’interface).
+Chaque OID correspond à une information (ex : charge CPU, mémoire, état d'interface).
 
-### Exemple d’OID :
+### Structure d'un OID
+
+Les OIDs sont organisés de manière hiérarchique, comme un arbre, où chaque nombre représente un niveau dans la hiérarchie :
+
+```text
+iso(1)
+  org(3)
+    dod(6)
+      internet(1)
+        private(4)
+          enterprise(1)
+            [ID Entreprise]
+              [Sous-branches spécifiques]
+```
+
+Exemple détaillé de la structure : `1.3.6.1.2.1.1.5.0`
+| Niveau | Valeur | Signification |
+|--------|---------|---------------|
+| 1 | 1 | ISO |
+| 2 | 3 | Organisation (org) |
+| 3 | 6 | Département de la Défense (dod) |
+| 4 | 1 | Internet |
+| 5 | 2 | Management (mgmt) |
+| 6 | 1 | MIB-2 |
+| 7 | 1 | System |
+| 8 | 5 | sysName |
+| 9 | 0 | Instance |
+
+### Branches principales courantes
+| OID de base | Description |
+|-------------|-------------|
+| .1.3.6.1.2.1 | MIB-2 (standard) |
+| .1.3.6.1.4.1 | Enterprise (privé) |
+| .1.3.6.1.6.3 | SNMP |
+| .1.3.6.1.2.1.25 | Host Resources |
+
+### Exemple avec Stormshield
+L'OID de base Stormshield : `.1.3.6.1.4.1.11256`
+
+Décomposition :
+```text
+.1              : ISO
+.3              : org
+.6              : dod
+.1              : internet
+.4              : private
+.1              : enterprise
+.11256          : Stormshield Network Security
+```
+
+Exemples d'OIDs Stormshield courants :
+| OID | Description |
+|-----|-------------|
+| .1.3.6.1.4.1.11256.1.0.1 | Version du Firmware |
+| .1.3.6.1.4.1.11256.1.0.2 | Numéro de série |
+| .1.3.6.1.4.1.11256.1.0.3 | État du système |
+| .1.3.6.1.4.1.11256.1.3.1 | Utilisation CPU |
+| .1.3.6.1.4.1.11256.1.3.2 | Utilisation mémoire |
+
+### Exemple d'OID :
 - `1.3.6.1.2.1.1.5.0` : Nom de l’hôte (sysName)
 
 ### Utilisation avec snmpget :

@@ -12,7 +12,7 @@ sudo apt install docker-compose
 ```
 - Vérification :
 ```bash
-docker-compose --version
+docker compose --version
 ```
 
 ## 🔹 Structure d’un fichier docker-compose.yml
