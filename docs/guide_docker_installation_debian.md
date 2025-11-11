@@ -17,6 +17,39 @@ Versions supportées :
 - **Debian 12 (Bookworm)** — dernière stable (recommandée).
 - **Debian 13 (Trixie)** — version testing.
 
+---
+
+## Installation Rapide avec le Script Officiel (Recommandé)
+
+Docker fournit un script d'installation automatisé officiel qui configure le dépôt et installe Docker en une seule commande. C'est la méthode recommandé et la plus rapide :
+
+```bash
+curl -fsSL https://get.docker.com -o get-docker.sh
+sudo sh get-docker.sh
+```
+
+Le script détecte automatiquement votre version Debian, ajoute le dépôt Docker officiel, et installe tous les paquets nécessaires (docker-ce, docker-ce-cli, containerd.io).
+
+**Optionnel** : ajouter votre utilisateur au groupe docker (pour utiliser Docker sans sudo) :
+
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
+
+Vérifiez l'installation :
+
+```bash
+docker --version
+docker run --rm hello-world
+```
+
+**Avantage** : une seule commande, tout est automatisé.
+
+**Alternative** : si vous préférez contrôler chaque étape, suivez les étapes manuelles ci-dessous (Étapes 1 à 10).
+
+---
+
 ## Étape 1 : Mettre à jour les paquets système
 
 Avant d'installer Docker, mettez à jour votre système :
