@@ -212,6 +212,25 @@ sudo systemctl status docker
 - Déployer une stack depuis l'UI (coller un `docker-compose.yml`).
 - Connecter un dépôt Git pour déploiements automatisés (option disponible dans Portainer).
 
+## Guides complémentaires
+
+Pour maîtriser Docker avant d'utiliser Portainer, consultez les guides suivants :
+
+- [Guide Docker](./guide_docker.md) — utilisation courante de Docker.
+- [Guide Installation Docker Debian](../guide_docker_installation_debian.md) — installation complète sur Debian.
+- [Guide Docker Compose](./guide_docker_compose.md) — orchestration multi-containers.
+- [Guide Docker Images](./guide_docker_image.md) — gestion des images Docker.
+- [Guide Docker Containers](./guide_docker_container.md) — gestion des containers.
+- [Guide Docker Volumes](./guide_docker_volume.md) — persistance des données.
+- [Guide Docker Networks](./guide_docker_network.md) — networking entre containers.
+- [Guide Docker Logs](./guide_docker_logs.md) — consultation et monitoring des logs.
+- [Guide Docker PS](./guide_docker_ps.md) — lister et monitorer les containers.
+- [Guide Docker Exec](./guide_docker_exec.md) — exécuter des commandes dans un container.
+- [Guide Docker Stop/Start/Restart](./guide_docker_stop_start_restart.md) — gérer le cycle de vie des containers.
+- [Guide Docker Builder](./guide_docker_builder.md) — construire des images personnalisées.
+- [Guide Docker Transfer Images](./guide_docker_transfer_images.md) — transférer des images entre machines.
+- [Guide Docker Filesystem Debian](./guide_docker_filesystem_debian.md) — système de fichiers Docker sur Debian.
+
 ## Références
 
 - Documentation officielle Portainer : https://docs.portainer.io/
