@@ -2,7 +2,7 @@
 # 📄 Guide d’utilisation des fichiers YAML
 
 ## 🔹 Qu’est-ce qu’un fichier YAML ?
-YAML (YAML Ain’t Markup Language) est un format de sérialisation de données lisible par l’humain, souvent utilisé pour la configuration d’applications, l’orchestration (ex. Docker, Kubernetes), ou le stockage de données simples.
+YAML (YAML Ain’t Markup Language) est un format de sérialisation de données lisible facilement, souvent utilisé pour la configuration d’applications, l’orchestration (ex. Docker, Kubernetes), ou le stockage de données simples.
 
 ## 🔹 Création d’un fichier YAML
 Un fichier YAML :

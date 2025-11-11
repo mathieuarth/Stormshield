@@ -24,7 +24,6 @@ Un SNMP Trap est un message d'alerte envoyé par un agent SNMP vers un gestionna
 | **Link Down** | Une interface réseau tombe |
 | **Link Up** | Une interface réseau se lève |
 | **Authentication Failure** | Échec d'authentification SNMP |
-| **EGP Neighbor Loss** | Perte de connexion avec un voisin EGP |
 | **Enterprise Specific** | Traps personnalisés définis par le constructeur |
 
 ## 🔹 Format d'un Trap SNMP

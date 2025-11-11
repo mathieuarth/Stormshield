@@ -38,7 +38,7 @@ Il permet de récupérer des informations (état, performance) et d’envoyer de
 
 | Bonne pratique | Pourquoi c’est utile |
 |----------------|----------------------|
-| **Utiliser SNMPv3** | Offre sécurité et contrôle d’accès |
+| **Utiliser SNMPv3** | Offre sécurité et contrôle d’accès, attention à la complexité de la mise en place |
 | **Limiter les IP autorisées** | Réduit les risques d’accès non autorisé |
 | **Documenter les OID utilisés** | Facilite la maintenance et la supervision |
 | **Superviser les traps SNMP** | Permet d’être alerté en cas d’événement critique |
