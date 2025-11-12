@@ -21,15 +21,15 @@ Docker est une plateforme de conteneurisation qui permet de créer, déployer et
 
 ## 🔹 Gestion des conteneurs
 
-- [Guide Docker Compose](./guide_docker_compose.md) — orchestration multi-containers.
+- [Guide Docker PS](./guide_docker_ps.md) — lister et monitorer les containers.
+- [Guide Docker Exec](./guide_docker_exec.md) — exécuter des commandes dans un container.
+- [Guide Docker Stop/Start/Restart](./guide_docker_stop_start_restart.md) — gérer le cycle de vie des containers.
 - [Guide Docker Images](./guide_docker_image.md) — gestion des images Docker.
 - [Guide Docker Containers](./guide_docker_container.md) — gestion des containers.
 - [Guide Docker Volumes](./guide_docker_volume.md) — persistance des données.
 - [Guide Docker Networks](./guide_docker_network.md) — networking entre containers.
 - [Guide Docker Logs](./guide_docker_logs.md) — consultation et monitoring des logs.
-- [Guide Docker PS](./guide_docker_ps.md) — lister et monitorer les containers.
-- [Guide Docker Exec](./guide_docker_exec.md) — exécuter des commandes dans un container.
-- [Guide Docker Stop/Start/Restart](./guide_docker_stop_start_restart.md) — gérer le cycle de vie des containers.
+- [Guide Docker Compose](./guide_docker_compose.md) — orchestration multi-containers.
 
 ## 🔹 Erreurs fréquentes
 

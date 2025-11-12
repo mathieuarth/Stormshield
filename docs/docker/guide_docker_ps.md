@@ -38,8 +38,6 @@ docker ps
 ```bash
 # Inclure les conteneurs arrêtés
 docker ps -a
-
-# Affiche également l'état "Exited"
 ```
 
 ### Afficher uniquement les IDs

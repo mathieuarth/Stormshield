@@ -201,84 +201,6 @@ docker run -d \
 docker network inspect app-network
 ```
 
-### Avec Docker Compose
-```yaml
-version: '3.8'
-
-services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_PASSWORD: secret
-    networks:
-      - app-network
-
-  app:
-    image: myapp:latest
-    ports:
-      - "3000:3000"
-    environment:
-      DB_HOST: db
-      DB_USER: postgres
-      DB_PASSWORD: secret
-    depends_on:
-      - db
-    networks:
-      - app-network
-
-  web:
-    image: nginx:latest
-    ports:
-      - "8080:80"
-    depends_on:
-      - app
-    networks:
-      - app-network
-
-networks:
-  app-network:
-    driver: bridge
-```
-
-## 🔹 Network configuration avancée
-
-### Limiter la bande passante
-```bash
-# Créer un réseau avec limite de bande passante
-docker network create \
-  --driver bridge \
-  --opt "com.docker.driver.mtu=1450" \
-  monreseau
-```
-
-### Configurer le driver réseau
-```bash
-# Options de bridge
-docker network create \
-  --opt "bridge.name=br0" \
-  --opt "com.docker.network.bridge.enable_icc=true" \
-  --opt "com.docker.network.bridge.enable_ip_masquerade=true" \
-  monreseau
-```
-
-### IPVLAN (réseau avancé)
-```bash
-# Créer un réseau IPVLAN
-docker network create \
-  --driver ipvlan \
-  --subnet=192.168.1.0/24 \
-  --gateway=192.168.1.1 \
-  -o parent=eth0 \
-  ipvlan-net
-
-# Lancer un conteneur
-docker run -d \
-  --name web \
-  --network ipvlan-net \
-  --ip=192.168.1.10 \
-  nginx
-```
-
 ## 🔹 Dépannage réseau
 
 ### Vérifier la connectivité
@@ -343,34 +265,6 @@ docker network inspect monreseau -f '{{range .Containers}}{{println .Name}}{{end
 | **Limiter les port mappings** | Réduit l'exposition réseau |
 | **Utiliser docker-compose** | Simplifie la gestion des réseaux complexes |
 | **Valider la connectivité** | Détecte les problèmes avant la production |
-
-## 🔹 Commandes de diagnostic utiles
-
-```bash
-# Lister tous les réseaux
-docker network ls
-
-# Afficher les détails complets
-docker network inspect monreseau
-
-# Voir les conteneurs dans un réseau
-docker network inspect monreseau -f '{{range .Containers}}{{.Name}}{{end}}'
-
-# Vérifier les ports mappés
-docker ps --format "table {{.Names}}\t{{.Ports}}"
-
-# Afficher la configuration IP d'un conteneur
-docker exec app ip addr show
-
-# Afficher les connexions réseau actives
-docker exec app netstat -tlnp
-
-# Tester la connectivité
-docker exec app curl -v http://web
-
-# Afficher les informations du driver réseau
-docker info | grep -A 10 "Network"
-```
 
 ## 🔹 Ressources utiles
 - [Documentation Docker Network](https://docs.docker.com/network/)

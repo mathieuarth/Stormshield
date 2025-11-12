@@ -105,25 +105,6 @@ docker volume create \
   temp-data
 ```
 
-### Options avancées
-```bash
-# Volume avec type NFS
-docker volume create \
-  --driver local \
-  --opt type=nfs \
-  --opt o=addr=192.168.1.10,vers=4,soft,timeo=180,bg,tcp,rw \
-  --opt device=:/export/data \
-  nfs-data
-
-# Volume avec type CIFS (Windows)
-docker volume create \
-  --driver local \
-  --opt type=cifs \
-  --opt device=//192.168.1.10/share \
-  --opt o=username=user,password=pass \
-  cifs-data
-```
-
 ## 🔹 docker volume inspect : Détails du volume
 
 ### Syntaxe
@@ -228,7 +209,7 @@ docker volume prune --filter "label!=keep"
 
 ### Monter un volume
 ```bash
-# Monter un volume créé
+# Monter un volume, Docker crée le volume s'il n'existe pas
 docker container run -d \
   --name db \
   -v my-data:/var/lib/postgresql/data \
@@ -246,15 +227,6 @@ docker container run -d \
   --name app \
   -v config-data:/etc/app:ro \
   myapp:1.0
-```
-
-### Créer et monter en même temps
-```bash
-# Docker crée le volume s'il n'existe pas
-docker container run -d \
-  --name cache \
-  -v redis-data:/data \
-  redis:7
 ```
 
 ### Bind mount (chemin local)
@@ -415,11 +387,6 @@ docker container run -d \
   -v my-data:/data:ro \
   myapp:1.0
 
-# Volume avec propagation
-docker container run -d \
-  --mount type=bind,source=/host/path,target=/container/path,bind-propagation=rprivate \
-  myapp:1.0
-
 # Tmpfs (mémoire)
 docker container run -d \
   --mount type=tmpfs,target=/tmp,tmpfs-size=1G \
@@ -489,18 +456,6 @@ docker volume create \
   smb-data
 ```
 
-### Plugins
-```bash
-# Installer un plugin
-docker plugin install vieux/sshfs
-
-# Utiliser le plugin
-docker volume create \
-  --driver vieux/sshfs:latest \
-  --opt sshcmd=user@192.168.1.10:/path/to/data \
-  sshfs-data
-```
-
 ## 🔹 Erreurs fréquentes
 
 | Erreur | Solution |
@@ -522,52 +477,6 @@ docker volume create \
 | **Utiliser des labels** | Facilite la gestion et le filtrage |
 | **Nettoyer les volumes inutilisés** | Libère l'espace disque |
 | **Tester les restaurations** | Assure que les sauvegardes fonctionnent |
-
-## 🔹 Docker Compose avec volumes
-
-### Exemple
-```yaml
-version: '3.8'
-
-services:
-  db:
-    image: postgres:13
-    environment:
-      POSTGRES_PASSWORD: secret
-    volumes:
-      - db-data:/var/lib/postgresql/data
-
-  app:
-    image: myapp:1.0
-    ports:
-      - "8080:3000"
-    volumes:
-      - app-logs:/app/logs
-    depends_on:
-      - db
-
-volumes:
-  db-data:
-  app-logs:
-```
-
-### Lancer et gérer
-```bash
-# Lancer
-docker compose up -d
-
-# Vérifier les volumes
-docker volume ls
-
-# Inspecter
-docker volume inspect docker_db-data
-
-# Arrêter (les volumes persistent)
-docker compose down
-
-# Supprimer aussi les volumes
-docker compose down -v
-```
 
 ## 🔹 Commandes associées
 
